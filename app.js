@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 var express = require('express');
 var path = require('path');
-=======
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
->>>>>>> 22fc102c3294c4c69aa9b29da74467d59e1baa1d
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -39,11 +32,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-<<<<<<< HEAD
   res.status(500);
-=======
-  res.status(err.status || 500);
->>>>>>> 22fc102c3294c4c69aa9b29da74467d59e1baa1d
   res.render('error');
 });
 
