@@ -11,17 +11,27 @@ app.get('/sample', (req, res) => {
   var options = {
     args:
     [
-      req.query.funds, // starting funds
-      req.query.size, // (initial) wager size
-      req.query.count, // wager count — number of wagers per sim
-      req.query.sims // number of simulations
+      req.query.img, // starting funds
+      req.query.model
     ]
   }
+  //  args:
+  //   [
+  //     req.query.funds, // starting funds
+  //     req.query.size, // (initial) wager size
+  //     req.query.count, // wager count — number of wagers per sim
+  //     req.query.sims // number of simulations
+  //   ]
+  // }
   console.log("------>", options);
-  PythonShell.run('./python-scripts/sample.py', options, function (err, data) {
-    if (err) res.send(err);
-    console.log(data.toString());
-    res.send(data.toString())
+  PythonShell.run('./python-scripts/brain-tumor-detection/predict.py', options , function (err, data) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+    console.log(data);
+    res.send(data)
+    // res.send("done");
   });
 });
 

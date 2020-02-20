@@ -14,9 +14,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 from os import listdir
+import os
+#print(os.getcwd())
+#sys.stdout.flush()
+best_model = load_model(filepath='F:/Projects/Final Year Project/backend/mini-hospital-api/python-scripts/brain-tumor-detection/cnn-parameters-improvement-23-0.91.model')
+#best_model = load_model(sys.argv[2])
 
-
-best_model = load_model(filepath='models/cnn-parameters-improvement-23-0.91.model')
 
 
 def crop_brain_contour(image, plot=False):
@@ -72,8 +75,11 @@ testX=load_data(str(file),(240,240))
 pred=best_model.predict(testX)
 
 if(pred[0][0]>0.5):
-	print('PREDICTION IS YES')
+    print('PREDICTION IS YES')
+    sys.stdout.flush()
+    #sys.exit(0)
 	#print('CONFIDENCE= '+str(pred[0][0]*100) + '%')
 else:
-	print('PREDICTION IS NO')
+    print('PREDICTION IS NO')
+    sys.stdout.flush()
 	#print('CONFIDENCE= '+str(pred[0][0]*100)+'%')
