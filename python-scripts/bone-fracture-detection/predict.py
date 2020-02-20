@@ -16,7 +16,7 @@ import numpy as np
 #print('Loaded')
 #model.save('model.h5')
 
-model=load_model('model.h5')
+model=load_model('F:/Projects/Final Year Project/backend/mini-hospital-api/python-scripts/bone-fracture-detection/model.h5')
 print('\n Model loaded \n')
 filename=sys.argv[1]
 img = load_img(filename,target_size=(224,224))

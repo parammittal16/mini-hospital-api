@@ -7,22 +7,13 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-app.get('/sample', (req, res) => {
+app.get('/brain', (req, res) => {
   var options = {
     args:
     [
-      req.query.img, // starting funds
-      req.query.model
+      req.query.img // starting funds
     ]
   }
-  //  args:
-  //   [
-  //     req.query.funds, // starting funds
-  //     req.query.size, // (initial) wager size
-  //     req.query.count, // wager count — number of wagers per sim
-  //     req.query.sims // number of simulations
-  //   ]
-  // }
   console.log("------>", options);
   PythonShell.run('./python-scripts/brain-tumor-detection/predict.py', options , function (err, data) {
     if (err) {
@@ -31,7 +22,24 @@ app.get('/sample', (req, res) => {
     }
     console.log(data);
     res.send(data)
-    // res.send("done");
+  });
+});
+
+app.get('/bone', (req, res) => {
+  var options = {
+    args:
+    [
+      req.query.img // starting funds
+    ]
+  }
+  console.log("------>", options);
+  PythonShell.run('./python-scripts/bone-fracture-detection/predict.py', options , function (err, data) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+    console.log(data);
+    res.send(data)
   });
 });
 
