@@ -17,7 +17,7 @@ from os import listdir
 import os
 #print(os.getcwd())
 #sys.stdout.flush()
-best_model = load_model(filepath='F:/Projects/Final Year Project/backend/mini-hospital-api/python-scripts/brain-tumor-detection/cnn-parameters-improvement-23-0.91.model')
+best_model = load_model(sys.argv[2])
 #best_model = load_model(sys.argv[2])
 
 

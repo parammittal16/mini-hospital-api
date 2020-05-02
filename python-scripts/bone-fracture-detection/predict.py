@@ -2,6 +2,7 @@ from keras.models import load_model,Model
 from keras.preprocessing.image import ImageDataGenerator, load_img,img_to_array
 import sys
 import numpy as np
+
 #from keras.applications.densenet import DenseNet169
 ##from keras.layers import Dense
 #from keras.optimizers import Adam
@@ -16,7 +17,7 @@ import numpy as np
 #print('Loaded')
 #model.save('model.h5')
 
-model=load_model('F:/Projects/Final Year Project/backend/mini-hospital-api/python-scripts/bone-fracture-detection/model.h5')
+model=load_model(sys.argv[2])
 print('\n Model loaded \n')
 filename=sys.argv[1]
 img = load_img(filename,target_size=(224,224))
